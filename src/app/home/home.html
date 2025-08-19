@@ -1,0 +1,39 @@
+<div class="row align-items-center mt-3">
+  <div class="col-auto">
+    <label for="species" class="col-form-label">Species:</label>
+  </div>
+  <div class="col-auto">
+    <select id="species"
+            class="form-select"
+            [(ngModel)]="selectedSpecie"
+            (change)="onSpeciesChange()">
+      <option *ngFor="let s of speciesList" [ngValue]="s">
+        {{ s.common_name }}
+      </option>
+    </select>
+  </div>
+</div>
+
+<!--<div *ngIf="selectedSpecie.groups.contains('variation')"> </div>-->
+
+<div class="chromo-name">
+  <h2 *ngIf="selectedSpecie">
+    {{ selectedSpecie.common_name |titlecase}}
+  </h2>
+</div>
+
+<div class="container">
+  <!-- Header row -->
+  <div class="row fw-bold mb-2">
+    <div class="col-6">Name</div>
+    <div class="col-6">Size</div>
+  </div>
+
+  <!-- Chromosome items -->
+  <div class="row" *ngFor="let chromo of chromosomes">
+    <div class="col-6">{{ chromo.name }}</div>
+    <div class="col-6">{{ chromo.length }}</div>
+  </div>
+</div>
+
+
