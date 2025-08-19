@@ -16,13 +16,13 @@
 
 <!--<div *ngIf="selectedSpecie.groups.contains('variation')"> </div>-->
 
-<div class="chromo-name">
+<div *ngIf="this.selectedSpecie" class="chromo-name">
   <h2 *ngIf="selectedSpecie">
     {{ selectedSpecie.common_name |titlecase}}
   </h2>
 </div>
 
-<div class="container">
+<div *ngIf="this.selectedSpecie" class="container">
   <!-- Header row -->
   <div class="row fw-bold mb-2">
     <div class="col-6">Name</div>
